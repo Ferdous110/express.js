@@ -5,12 +5,22 @@ const userRouter = require("./routes/users.route")
 app.use("/api/user", userRouter);
 
 app.get("/",(req, res) => {
-  res.send("<h1> i am a get request at home route </h1> ");
-  res.end();
+  // res.send("<h1> i am a get request at home route </h1> ");
+  res.statusCode = 200;
+  res.sendFile(__dirname + "/views/index.html");
 });
-app.get("/about", (req, res) => {
+app.use("/about", (req, res) => {
   res.send("<h1> i am a get request at about route </h1>");
   res.end();
+});
+app.use("/register",(req, res)=>{
+  // res.status(200).json({
+  //   massage: "I am register page",
+  //   statusCode:"200"
+  // })
+  // res.redirect("/api/user/login");
+  res.statusCode = 200;
+  res.sendFile(__dirname + "/views/register.html");
 });
 app.post("/", (req, res) => {
   res.send("<h1> i am a post request at home route </h1>");
