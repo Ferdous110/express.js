@@ -28,7 +28,7 @@ const getAllUsesr =  (req, res) =>{
    res.status(200).json(users);
 };
 
-// delete user \
+// delete user 
 
 const deleteUser =  (req, res) => {
    const userid = req.params.id;
