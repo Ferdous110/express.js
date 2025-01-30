@@ -28,4 +28,12 @@ const getAllUsesr =  (req, res) =>{
    res.status(200).json(users);
 };
 
- module.exports = {getAllUsesr, createUser, updateUser};
+// delete user \
+
+const deleteUser =  (req, res) => {
+   const userid = req.params.id;
+   users = users.filter((user) => user.id !== userid) 
+   res.status(200).json(users);
+};
+
+ module.exports = {getAllUsesr, createUser, updateUser, deleteUser};
