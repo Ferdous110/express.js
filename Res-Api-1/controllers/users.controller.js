@@ -16,5 +16,16 @@ const getAllUsesr =  (req, res) =>{
     users.push(newUser)
     res.status(200).json(users);
  };
+ // Update user 
 
- module.exports = {getAllUsesr, createUser};
+ const updateUser =  (req, res) =>{
+   const userid = req.params.id;
+   const { username, email } = req.body;
+   users.filter((user)=> user.id === userid).map((Selecteduser)=> {
+      Selecteduser.username = username;
+      Selecteduser.email = email;
+   })
+   res.status(200).json(users);
+};
+
+ module.exports = {getAllUsesr, createUser, updateUser};
